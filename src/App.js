@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { QuoteContextProvider } from './contexts/QuoteContext'
+import QuoteDisplay from './components/QuoteDisplay'
+import QuoteButton from './components/QuoteButton'
+import TwitterButton from './components/TwitterButton'
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+	  <>
+      <div
+        className="container-fluid min-vh-100 d-flex flex-column align-items-center"
+        style={{
+          backgroundImage: "url('/background.png')",
+          backgroundSize: "100%",
+          backgroundAttachment: "fixed",
+      }}>
+
+        <div className=" card bg-light bg-gradient mt-auto rounded shadow" style={{ width: 800 }}>
+          <div id="quote-box" className="card-body p-5 text-center">
+            <QuoteContextProvider>
+                  <QuoteDisplay />
+                  <QuoteButton />
+                  <TwitterButton />
+            </QuoteContextProvider>
+          </div>
+        </div>
+
+        <p className="mt-auto mb-1">
+          Inspirational quotes provided by <a
+            className="link-warning text-decoration-none"
+            href="https://github.com/lukePeavey/quotable"
+            target="_blank"
+          >
+            Luke Peavey's quotable
+          </a>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+      </div>
+	  </>
+  )
 }
 
-export default App;
+export default App
