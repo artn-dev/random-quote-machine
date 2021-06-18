@@ -48,7 +48,7 @@ export const QuoteBox = () => {
 
   return (
     <>
-        <div className=" card bg-light bg-gradient mt-auto rounded shadow" style={{ width: 800 }}>
+        <div className=" card bg-light bg-gradient mt-auto rounded shadow" style={{ width: "80%" }}>
           <div id="quote-box" className="card-body p-5 text-center">
             <QuoteDisplay quote={quote} />
             <QuoteButton onClick={changeQuote} />
