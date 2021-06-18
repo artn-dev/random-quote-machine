@@ -1,17 +1,11 @@
-import { useContext } from 'react'
-import { QuoteContext } from '../contexts/QuoteContext'
-
-
-const QuoteButton = () => {
-  const { changeQuote } = useContext(QuoteContext)
-
+const QuoteButton = ({ onClick }) => {
   return (
     <>
       <button
         id="new-quote"
         type="button"
         className="btn btn-outline-info btn-lg"
-        onClick={changeQuote}
+        onClick={onClick}
       >
         Get another
       </button>
