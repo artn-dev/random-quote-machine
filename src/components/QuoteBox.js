@@ -1,9 +1,10 @@
-import { useState, useEffect, createContext } from 'react'
+import { useState, useEffect } from 'react'
+import QuoteDisplay from './QuoteDisplay'
+import QuoteButton from './QuoteButton'
+import TwitterButton from './TwitterButton'
 
 
-export const QuoteContext = createContext({})
-
-export const QuoteContextProvider = ({ children }) => {
+export const QuoteBox = () => {
   const [quoteList, setQuoteList] = useState([])
   const [quoteIndex, setQuoteIndex] = useState(0)
   const [quote, setQuote] = useState()
@@ -46,12 +47,16 @@ export const QuoteContextProvider = ({ children }) => {
   }, [quoteIndex])
 
   return (
-    <QuoteContext.Provider
-      value={{
-        quote,
-        changeQuote
-    }}>
-      {children}
-    </QuoteContext.Provider>
+    <>
+        <div className=" card bg-light bg-gradient mt-auto rounded shadow" style={{ width: 800 }}>
+          <div id="quote-box" className="card-body p-5 text-center">
+            <QuoteDisplay quote={quote} />
+            <QuoteButton onClick={changeQuote} />
+            <TwitterButton />
+          </div>
+        </div>
+    </>
   )
 }
+
+export default QuoteBox 
