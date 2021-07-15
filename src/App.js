@@ -1,7 +1,4 @@
-import { QuoteContextProvider } from './contexts/QuoteContext'
-import QuoteDisplay from './components/QuoteDisplay'
-import QuoteButton from './components/QuoteButton'
-import TwitterButton from './components/TwitterButton'
+import QuoteBox from './components/QuoteBox'
 
 
 const App = () => {
@@ -15,15 +12,7 @@ const App = () => {
           backgroundAttachment: "fixed",
       }}>
 
-        <div className=" card bg-light bg-gradient mt-auto rounded shadow" style={{ width: 800 }}>
-          <div id="quote-box" className="card-body p-5 text-center">
-            <QuoteContextProvider>
-                  <QuoteDisplay />
-                  <QuoteButton />
-                  <TwitterButton />
-            </QuoteContextProvider>
-          </div>
-        </div>
+        <QuoteBox />
 
         <p className="mt-auto mb-1">
           Inspirational quotes provided by <a

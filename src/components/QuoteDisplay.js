@@ -1,15 +1,11 @@
-import { useContext } from 'react'
-import { QuoteContext } from '../contexts/QuoteContext'
-
-
-const Quote = ({ quote }) => (
+const Quote = ({ text, author }) => (
     <>
         <blockquote className="fs-3 blockquote">
-            <p id="text">"{quote.content}"</p>
+            <p id="text">"{text}"</p>
         </blockquote>
 
         <figcaption id="author" className="fs-5 text-end blockquote-footer">
-            {quote.author}
+            {author}
         </figcaption>
     </>
 )
@@ -23,14 +19,12 @@ const LoadingSpinners = () => (
     </>
 )
 
-const QuoteDisplay = () => {
-  const { quote } = useContext(QuoteContext)
-
+const QuoteDisplay = ({ quote }) => {
   return (
     <>
       <figure>
         { quote
-          ? <Quote quote={quote} />
+          ? <Quote author={quote.author} text={quote.content} />
           : <LoadingSpinners />
         }
       </figure>
